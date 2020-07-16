@@ -1,0 +1,12 @@
+# 데이터베이스를 초기화한다.
+node_modules/.bin/sequelize-cli init
+
+# 모델을 생성한다.
+node_modules/.bin/sequelize-cli model:generate --models-path models/product --name Category --attributes name:string,slug:string,description:string,metaDescription:string,metaKeywords:string,categoryStatus:enum,isDeleted:boolean
+node_modules/.bin/sequelize-cli model:generate --models-path models/product --name Brand --attributes name:string,slug:string,description:string,metaDescription:string,metaKeywords:string,brandStatus:enum,isDeleted:boolean
+node_modules/.bin/sequelize-cli model:generate --models-path models/product --name Product --attributes name:string,slug:string,description:string,metaDescription:string,metaKeywords:string,sku:string,model:string,price:decimal,oldPrice:decimal,imageUrl:string,isBestseller:boolean,isFeatured:boolean,quantity:integer,productStatus:enum
+node_modules/.bin/sequelize-cli model:generate --models-path models/product --name ProductBrand --attributes productId:integer,brandId:integer
+node_modules/.bin/sequelize-cli model:generate --models-path models/product --name ProductCategory --attributes productId:integer,categoryId:integer
+
+# 데이터베이스 동기화
+./node_modules/.bin/sequelize db:migrate

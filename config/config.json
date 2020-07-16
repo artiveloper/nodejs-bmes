@@ -1,0 +1,14 @@
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "./bmes.db"
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "./bmes.db"
+  },
+  "production": {
+    "dialect": "sqlite",
+    "storage": "./bmes.db"
+  }
+}
